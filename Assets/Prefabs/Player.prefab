@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3365204528459356898}
   - component: {fileID: 3365204528459356899}
   - component: {fileID: 3365204528459356911}
-  - component: {fileID: 3365204528459356910}
-  - component: {fileID: 3365204528459356909}
   - component: {fileID: 3365204528459356896}
+  - component: {fileID: 3365204528459356909}
+  - component: {fileID: 3365204528459356910}
   - component: {fileID: 117975803}
   - component: {fileID: 117975804}
   m_Layer: 0
@@ -129,19 +129,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3365204528459356910
-MonoBehaviour:
+--- !u!70 &3365204528459356896
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3365204528459356900}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5278b6616893a8949a4bae8dac947038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpForce: 10
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1, y: 0}
+  m_Size: {x: 1.5, y: 1.5}
+  m_Direction: 0
 --- !u!114 &3365204528459356909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,22 +239,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!70 &3365204528459356896
-CapsuleCollider2D:
+--- !u!114 &3365204528459356910
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3365204528459356900}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: 0}
-  m_Size: {x: 1.5, y: 1.5}
-  m_Direction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5278b6616893a8949a4bae8dac947038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForce: 10
 --- !u!82 &117975803
 AudioSource:
   m_ObjectHideFlags: 0
@@ -360,3 +360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e0462642043f64cb966d0f46d6d025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _knockbackForce: 1
+  _invulnerabilityTime: 1.25
+  _invincibilityDeltaTime: 0.15

@@ -1,18 +1,50 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class HitDetection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static readonly int _invulnerable1 = Animator.StringToHash("Invulnerable");
+    [SerializeField] private float _knockbackForce = 1f;
+    [SerializeField] private float _invulnerabilityTime = 1.5f;
+    [SerializeField] private float _invincibilityDeltaTime = 0.15f;
+
+    private bool _invulnerable;
+
+    private SpriteRenderer _spriteRenderer;
+
+    private void Start()
     {
-        
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Enemy")) EnemyHit();
+    }
+
+    private void EnemyHit()
+    {
+        if (_invulnerable) return;
+
+        StartCoroutine(HandleInvulnerability());
+        transform.Translate(Vector2.left * _knockbackForce);
+    }
+
+    private IEnumerator HandleInvulnerability()
+    {
+        Debug.Log("start");
+        _invulnerable = true;
+
+        for (float i = 0; i < _invulnerabilityTime; i += _invincibilityDeltaTime)
+        {
+            _spriteRenderer.enabled = !_spriteRenderer.enabled;
+
+            yield return new WaitForSeconds(_invincibilityDeltaTime);
+        }
+
+        Debug.Log("end");
+        _spriteRenderer.enabled = true;
+        _invulnerable = false;
     }
 }
