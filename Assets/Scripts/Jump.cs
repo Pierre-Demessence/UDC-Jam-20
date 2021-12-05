@@ -1,14 +1,17 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Jump : MonoBehaviour
 {
     [SerializeField] private float _jumpForce = 10;
-    private Rigidbody2D _rigidbody2D;
     private bool _isGrounded;
+    private AudioSource _jumpAudioSource;
+    private Rigidbody2D _rigidbody2D;
 
     private void Start()
     {
+        _jumpAudioSource = GetComponent<AudioSource>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -30,6 +33,8 @@ public class Jump : MonoBehaviour
     private void DoJump()
     {
         if (!_isGrounded) return;
+
+        _jumpAudioSource.Play();
         _rigidbody2D.AddRelativeForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - DeleteZone
+  - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX
