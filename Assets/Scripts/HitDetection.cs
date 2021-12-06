@@ -23,7 +23,7 @@ public class HitDetection : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             EnemyHit();
-            other.GetComponent<Collider2D>().enabled = false;
+            other.tag = "Untagged";
         }
     }
 
