@@ -20,7 +20,11 @@ public class HitDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy")) EnemyHit();
+        if (other.CompareTag("Enemy"))
+        {
+            EnemyHit();
+            other.GetComponent<Collider2D>().enabled = false;
+        }
     }
 
     private void EnemyHit()

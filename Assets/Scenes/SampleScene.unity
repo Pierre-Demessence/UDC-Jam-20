@@ -1094,7 +1094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 7457392855547932937, guid: c90ad31161a1f8f42bec3d13c43a8c29, type: 3}
-  _interval: 3
+  _minInterval: 3
+  _maxInterval: 6
 --- !u!1001 &1466770240
 PrefabInstance:
   m_ObjectHideFlags: 0
