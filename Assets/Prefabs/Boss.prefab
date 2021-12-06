@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _centerPosition: {fileID: 217514186}
   _radius: 0.2
 --- !u!1 &8305260239147327698
 GameObject:

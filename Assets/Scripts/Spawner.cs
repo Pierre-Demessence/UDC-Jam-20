@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _prefab;
+    [SerializeField] private float _minInterval = 3;
+    [SerializeField] private float _maxInterval = 6;
+
+    private void Start()
     {
-        
+        StartCoroutine(Spawn());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Spawn()
     {
-        
+        yield return new WaitForSeconds(_minInterval);
+        while (true)
+        {
+            Instantiate(_prefab, transform.position, transform.rotation);
+            yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
+        }
     }
 }
