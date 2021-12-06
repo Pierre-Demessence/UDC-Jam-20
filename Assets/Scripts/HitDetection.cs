@@ -33,7 +33,6 @@ public class HitDetection : MonoBehaviour
 
     private IEnumerator HandleInvulnerability()
     {
-        Debug.Log("start");
         _invulnerable = true;
 
         for (float i = 0; i < _invulnerabilityTime; i += _invincibilityDeltaTime)
@@ -43,7 +42,6 @@ public class HitDetection : MonoBehaviour
             yield return new WaitForSeconds(_invincibilityDeltaTime);
         }
 
-        Debug.Log("end");
         _spriteRenderer.enabled = true;
         _invulnerable = false;
     }
