@@ -191,6 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _radius: 0.2
+  _minSize: 0.5
+  _maxSize: 1.25
 --- !u!1 &8305260239147327698
 GameObject:
   m_ObjectHideFlags: 0
