@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class HitDetection : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class HitDetection : MonoBehaviour
     [SerializeField] private float _knockbackForce = 1f;
     [SerializeField] private float _invulnerabilityTime = 1.5f;
     [SerializeField] private float _invincibilityDeltaTime = 0.15f;
+    [SerializeField] private AudioSource _hitAudioSource;
 
     private bool _invulnerable;
 
@@ -31,6 +33,7 @@ public class HitDetection : MonoBehaviour
     {
         if (_invulnerable) return;
 
+        _hitAudioSource.Play();
         StartCoroutine(HandleInvulnerability());
         transform.Translate(Vector2.left * _knockbackForce);
     }

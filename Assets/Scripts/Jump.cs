@@ -5,13 +5,12 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     [SerializeField] private float _jumpForce = 10;
+    [SerializeField] private AudioSource _jumpAudioSource;
     private bool _isGrounded;
-    private AudioSource _jumpAudioSource;
     private Rigidbody2D _rigidbody2D;
 
     private void Start()
     {
-        _jumpAudioSource = GetComponent<AudioSource>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
