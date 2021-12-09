@@ -17,8 +17,8 @@ public class LookAt : MonoBehaviour
 
     private void Update()
     {
-        var lookDir = (_target.position - transform.parent.position).normalized;
-        transform.localPosition = lookDir * _radius;
+        var newPos  = (_target.position - transform.parent.position).normalized * _radius;
+        transform.localPosition = new Vector3(newPos.x, newPos.y, transform.localPosition.z);
 
         var size = Mathf.Lerp(_maxSize, _minSize, Mathf.Abs(transform.position.x - _target.position.x)  / _initialDistance);
         transform.localScale = Vector3.one * size;
