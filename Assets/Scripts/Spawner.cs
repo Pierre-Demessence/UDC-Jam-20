@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefab;
+    [SerializeField] private List<GameObject> _prefabs;
     [SerializeField] private float _minInterval = 3;
     [SerializeField] private float _maxInterval = 6;
 
@@ -19,7 +18,8 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(_minInterval);
         while (true)
         {
-            Instantiate(_prefab, transform.position, transform.rotation);
+            var prefab = _prefabs[Random.Range(0, _prefabs.Count)];
+            Instantiate(prefab, transform.position, transform.rotation);
             yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
         }
     }
