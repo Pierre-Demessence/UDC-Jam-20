@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,22 +5,11 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
     [SerializeField] private float _scoreMultiplier = 1;
-    private float _score = 0;
-    public float Score
-    {
-        get => _score;
-    }
+    public float Score { get; private set; }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        _score += Time.deltaTime * _scoreMultiplier;
-        _scoreText.text = "Score : " + _score.ToString("F0");
+        Score += Time.deltaTime * _scoreMultiplier;
+        _scoreText.text = "Score : " + Score.ToString("F0");
     }
 }

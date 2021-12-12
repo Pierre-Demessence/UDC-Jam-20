@@ -7,6 +7,6 @@ public class Oscillate : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(_direction.normalized * (Mathf.PingPong(Time.time, 2) - 1) * _magnitude);
+        transform.Translate(_direction.normalized * (Mathf.PingPong(Time.time, 2) - 1) * _magnitude * Time.deltaTime);
     }
 }
