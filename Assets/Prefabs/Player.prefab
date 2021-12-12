@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: bb407cd32fc6fb74dbfdd67c36fc9448, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -252,7 +252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5278b6616893a8949a4bae8dac947038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 10
+  _jumpForce: 100
+  _minDuration: 0.5
+  _maxDuration: 0.75
   _jumpAudioSource: {fileID: 117975803}
 --- !u!82 &117975803
 AudioSource:
