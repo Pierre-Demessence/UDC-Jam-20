@@ -8,6 +8,7 @@ public class Jump : MonoBehaviour
     [SerializeField] private AudioSource _jumpAudioSource;
     private bool _isGrounded;
     private Rigidbody2D _rigidbody2D;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -16,12 +17,20 @@ public class Jump : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground")) _isGrounded = true;
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            _isGrounded = true;
+            animator.SetBool("Jump", false);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground")) _isGrounded = false;
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            _isGrounded = false;
+            animator.SetBool("Jump", true);
+        }
     }
 
     public void OnJump()
