@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 100
+  _fallForce: 10
   _minDuration: 0.5
   _maxDuration: 0.75
   _jumpAudioSource: {fileID: 117975803}
@@ -266,7 +267,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2bbb1ca064990864c97fe172fef53e9c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1313f1508004ff941a315ec485e062c5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
