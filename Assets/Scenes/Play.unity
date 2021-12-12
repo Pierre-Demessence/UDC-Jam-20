@@ -1312,6 +1312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 1542994317}
   _scoreMultiplier: 1
+  _scoreSpeedModifierFactor: 0.05
 --- !u!4 &1140794575
 Transform:
   m_ObjectHideFlags: 0
@@ -2698,6 +2699,38 @@ PrefabInstance:
     - target: {fileID: 3365204528459356900, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365204528459356910, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
+      propertyPath: _fallForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365204528459356910, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
+      propertyPath: _jumpForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365204528459356910, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
+      propertyPath: _maxDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365204528459356910, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
+      propertyPath: _minDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365204528459356911, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365204528459356911, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365204528459356911, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365204528459356911, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2129355427586cf4f82fa3751c67ddd7, type: 3}

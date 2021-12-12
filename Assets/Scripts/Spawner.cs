@@ -7,9 +7,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] private List<GameObject> _prefabs;
     [SerializeField] private float _minInterval = 3;
     [SerializeField] private float _maxInterval = 6;
+    private ScoreManager _scoreManager;
 
     private void Start()
     {
+        _scoreManager = FindObjectOfType<ScoreManager>();
         StartCoroutine(Spawn());
     }
 
@@ -20,7 +22,8 @@ public class Spawner : MonoBehaviour
         {
             var prefab = _prefabs[Random.Range(0, _prefabs.Count)];
             Instantiate(prefab, transform.position, transform.rotation);
-            yield return new WaitForSeconds(Random.Range(_minInterval, _maxInterval));
+
+            yield return new WaitForSeconds(Random.Range(_minInterval / _scoreManager.ScoreSpeedModifier, _maxInterval / _scoreManager.ScoreSpeedModifier));
         }
     }
 }

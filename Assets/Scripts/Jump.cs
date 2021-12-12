@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 public class Jump : MonoBehaviour
 {
     [SerializeField] private float _jumpForce = 10;
+    [SerializeField] private float _fallForce = 10;
     [SerializeField] private float _minDuration = 0.5f;
     [SerializeField] private float _maxDuration = 2;
+
     [SerializeField] private AudioSource _jumpAudioSource;
     private bool _isGrounded;
     private bool _isJumpButtonHold;
@@ -15,9 +17,11 @@ public class Jump : MonoBehaviour
     private bool _isJumping;
     private float _jumpStartTime = -float.MinValue;
     private Rigidbody2D _rigidbody2D;
+    private ScoreManager _scoreManager;
 
     private void Start()
     {
+        _scoreManager = FindObjectOfType<ScoreManager>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -34,9 +38,9 @@ public class Jump : MonoBehaviour
         if (!_isJumping) return;
 
         var jumpDuration = Time.time - _jumpStartTime;
-        if (jumpDuration > _maxDuration) return;
 
-        if (_isJumpButtonHold && !_isJumpCancelled || jumpDuration <= _minDuration) _rigidbody2D.AddRelativeForce(Vector2.up * _jumpForce * Time.deltaTime, ForceMode2D.Impulse);
+        if (_isJumpButtonHold && jumpDuration < _maxDuration / _scoreManager.ScoreSpeedModifier && !_isJumpCancelled || jumpDuration <= _minDuration / _scoreManager.ScoreSpeedModifier) _rigidbody2D.velocity = Vector2.up * _jumpForce * _scoreManager.ScoreSpeedModifier;
+        else _rigidbody2D.velocity = Vector2.down * _fallForce * _scoreManager.ScoreSpeedModifier;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
